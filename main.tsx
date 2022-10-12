@@ -4,7 +4,7 @@ import blog from "blog";
 
 blog({
   title: "柒月的博客",
-  description: "", // say somthing...
+  description: "简简单单，如此便好",
   author: "柒月",
   avatarClass: "full",
   avatar: "./images/gmqiyue.png",
