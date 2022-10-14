@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import blog from "blog";
+import blog, { ga } from "blog";
 
 blog({
   title: "柒月的博客",
@@ -16,4 +16,7 @@ blog({
     { title: "GitHub", url: "https://github.com/gmqiyue" },
   ],
   style: `.home header + div > :first-child {border: none;}`, // 隐藏文章列表与Header之间的上边框
+  middlewares: [
+    ga("G-2WZJ1R9MDL"), //
+  ],
 });
