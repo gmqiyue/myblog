@@ -17,6 +17,6 @@ blog({
   ],
   style: `.home header + div > :first-child {border: none;}`, // 隐藏文章列表与Header之间的上边框
   middlewares: [
-    ga("G-2WZJ1R9MDL"), //
+    ga(Deno.env.GA_KEY), //
   ],
 });
