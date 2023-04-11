@@ -18,7 +18,10 @@ blog({
   ],
   lang: "zh",
   // localised format based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
-  dateFormat: (date) => new Intl.DateTimeFormat("zh-GB", { dateStyle: "long" }).format(date),
+  dateFormat: (date) =>
+    new Intl.DateTimeFormat("zh-GB", { dateStyle: "long" }).format(date),
   // style: `.home header + div > :first-child {border: none;}`, // 隐藏文章列表与Header之间的上边框
-  middlewares: [...(GOOGLE_ANALYTICS_KEY ? [ga(GOOGLE_ANALYTICS_KEY as string)] : [])],
+  middlewares: [
+    ...(GOOGLE_ANALYTICS_KEY ? [ga(GOOGLE_ANALYTICS_KEY as string)] : []),
+  ],
 });
