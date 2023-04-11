@@ -15,6 +15,8 @@ const socialAppIcons = new Map([
   ["twitter.com", IconTwitter],
   ["instagram.com", IconInstagram],
   ["linkedin.com", IconLinkedin],
+  ["mastodon.social", IconMastodon],
+  ["ucg.cc", IconHome],
 ]);
 
 interface IndexProps {
@@ -54,7 +56,7 @@ export function Index({ state, posts }: IndexProps) {
               />
             )}
             <h1
-              class="mt-3 text-4xl text-gray-900 dark:text-gray-500 font-bold"
+              class="mt-3 text-4xl text-gray-900 dark:text-gray-100 font-bold"
               style={{ color: state.coverTextColor }}
             >
               {state.title ?? "My Blog"}
@@ -165,6 +167,7 @@ interface PostPageProps {
 export function PostPage({ post, state }: PostPageProps) {
   const html = gfm.render(post.markdown, {
     allowIframes: post.allowIframes,
+    disableHtmlSanitization: post.disableHtmlSanitization,
   });
   return (
     <div className={`post ${post.pathname.substring(1)}`}>
@@ -418,4 +421,35 @@ function IconLinkedin() {
       />
     </svg>
   );
+}
+
+function IconMastodon() {
+  return (
+    <svg
+      className="inline-block w-4 h-4"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="m 19.511621,6.5529853 c 0,-4.3325586 -2.858596,-5.62785744 -2.858596,-5.62785744 -2.769261,-1.25063495 -10.183739,-1.25063495 -12.9530035,0 0,0 -2.85859381,1.29529884 -2.85859381,5.62785744 0,5.1811997 -0.31265876,11.6130377 4.73454581,12.9083367 1.7866208,0.491322 3.3499146,0.580654 4.6005495,0.53599 2.277943,-0.134007 3.528578,-0.803981 3.528578,-0.803981 l -0.04466,-1.652625 c 0,0 -1.652625,0.491322 -3.483914,0.446655 -1.7866155,-0.08935 -3.7072318,-0.22332 -3.9752264,-2.41194 l -0.044657,-0.625317 c 3.8412328,0.937976 7.1018194,0.40199 7.9951284,0.312669 2.50127,-0.312669 4.689881,-1.875951 4.957876,-3.260582 0.446654,-2.2332757 0.40199,-5.4491947 0.40199,-5.4491947 z M 16.161703,12.136176 H 14.062424 V 7.0443035 c 0,-2.2332752 -2.858594,-2.3226069 -2.858594,0.312669 V 10.170902 H 9.1492155 V 7.3569732 c 0,-2.5905977 -2.8585926,-2.5459339 -2.8585926,-0.312669 v 5.0918718 h -2.09928 c 0,-5.4491951 -0.223321,-6.6104988 0.8039772,-7.8164697 1.1613071,-1.2952989 3.5732455,-1.3399665 4.6452174,0.2679762 l 0.5359855,0.8933087 0.535986,-0.8933087 c 1.071975,-1.6526252 3.483913,-1.5186297 4.60055,-0.2679762 1.071975,1.2506352 0.848644,2.3672746 0.848644,7.8164697 z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function IconHome() {
+  return (
+    <svg
+    className="inline-block w4.5 h4.5"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 576 512"
+      fill="none"
+    >
+      <path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185V64c0-17.7-14.3-32-32-32H448c-17.7 0-32 14.3-32 32v36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1h32v69.7c-.1 .9-.1 1.8-.1 2.8V472c0 22.1 17.9 40 40 40h16c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2H160h24c22.1 0 40-17.9 40-40V448 384c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v64 24c0 22.1 17.9 40 40 40h24 32.5c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1h16c22.1 0 40-17.9 40-40V455.8c.3-2.6 .5-5.3 .5-8.1l-.7-160.2h32z"
+        fill="currentColor"
+      />
+    </svg>
+  )
 }
